@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apprentissage JS</title>
+
+    <!--tu peux ecrire du js ici-->
+    <!--si tu veux une bonne doc consulte celle de mozilla elle est bien foutu https://developer.mozilla.org/fr/docs/Web/JavaScript-->
+    <script>
+        /*
+            Remarques :
+            -const : c'est pour declarer une constante qui ne sera plus changeable plus tard
+            -let : c'est pour declarer une variable qui peux plus tard etre changer normal
+
+            -var : c'est pour declarer une variable 
+            - : ne rien maitre c'est aussi considerer comme 'var'
+
+            -remarque : le 'var' et le rien '' n'est plus utiliser meme si ca marche on prefere utiliser le 'const' et le 'let'
+        */
+
+        const constante = 2
+        let variable = 3
+        variable = 4 //il prendra en compte la derniere val qui est 4
+
+        var autre_variable = 5
+        encore_autre_var = 6
+
+        /*
+            Petite Astuce :
+            quand tu va coder du js mets toutes des variables en 'cont' et si plus tard t'as besoin de changer la valeur d'une variable tu la remets en 'let'
+        */
+       
+        const nbr = 10 
+        const string_type_1 = " Salem !! " //guillemets
+        const string_type_2 = ' Hello !! ' //cotes
+        const string_type_3 = ` Bonjour !! ` //backtics
+        const booleen = true 
+        const non_defini = undefined
+        const tableau = [1,2,3,'coucou',3.14,[10,20,30]] //var de type tableau
+        const personne = { //var de type OBJET
+            age: 18,
+            nom: "Ramdane Mamacha",
+            ptenom: 'Souhil',
+            notes: [10,11,20,15],
+            job: {
+                name: 'informaticien',
+                heures: 35,
+                specialisation: "devloppement web",
+            }
+        }//pour acceder par exemple à la spé tu mets => personne.job.specialisation
+
+        //Petit Tips: pour connaitre le type d'une variable tu utilise => 'typeof'
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
