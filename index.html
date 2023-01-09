@@ -62,7 +62,7 @@
         //pour afficher un truc directement sur la console tu utilise "console.log()"
         console.log('ceci est du text ecrits grace à console.log() ')
 
-        const age = 10
+        let age = 10
         if (age >20) {
             console.log("age superieure à 20")
         }
@@ -72,11 +72,59 @@
         if( 10 === '10' ){
             console.log("c'est vrai")
         }else console.log("c'est faux")
+        //Petit Tips: Utilise tjr le TRIPLE égale car le double est trop imprévisible
+        //La meme chose pour la négation utilise "!=="
 
+
+        //les opérateurs logiques
+        age = 17
+        const pays = 'FR'
+
+        if((age >= 18 && pays === 'FR') || (age >= 20 && pays ==='USA')){
+            console.log("tu a la permission de conduire c'est bon")
+        }
+        else console.log("tu n'as pas la permission mon pote")
+
+        //inverser une condition tu mets un '!' avant
+        if(!age<18)console.log('tu es majeure !!')
+        else console.log("tu es mineur !!")
         
+        //ya aussi le switch comme pour les autres languages :
+        switch (pays) {
+            case 'FR':
+                console.log("je sui en France")
+                break;
+            
+            case 'DZ':
+                console.log("je sui en Algérie")
+                break;
+
+            case 'USA':
+                console.log("je sui aux Etats-Unis")
+                break;
+        
+            default:
+                console.log('je suis autre pars')
+                break;
+        }
+
+        //pour saisir une valeur via le navigateur tu peux utiliser le "prompt()"
+        //const saisie = prompt("saisissez une valeur svp : ")
+        /*
+        
+        const val_1 = prompt("veillez saisir une valeur svp : ")
+        const val_2 = prompt("veillez saisir une autre valeur svp : ")
+
+        const val_3 = val_1 * val_2
+
+        if (val_3 < 0) {
+            console.log(`le resultat de ${val_1} * ${val_2} est négatif !! et ca donnne une valeur égale à ${val_3}`)
+        }else
+            console.log(`le resultat de ${val_1} * ${val_2} est positif !! et ca donnne une valeur égale à ${val_3}`)
+        */
     </script>
 </head>
 <body>
-    
+    <h1>APPRENTISSAGE DES BASES</h1>
 </body>
 </html>
