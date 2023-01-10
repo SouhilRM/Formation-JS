@@ -111,7 +111,7 @@
         //pour saisir une valeur via le navigateur tu peux utiliser le "prompt()"
         //const saisie = prompt("saisissez une valeur svp : ")
         /*
-        
+
         const val_1 = prompt("veillez saisir une valeur svp : ")
         const val_2 = prompt("veillez saisir une autre valeur svp : ")
 
@@ -122,6 +122,58 @@
         }else
             console.log(`le resultat de ${val_1} * ${val_2} est positif !! et ca donnne une valeur égale à ${val_3}`)
         */
+    </script>
+
+    <!--Les boucles-->
+    <script>
+        //premier type de boucle et le pire car tu peux facilement tomber dans une boucle infinie
+        let i=0
+        while (i < 5) {
+            console.log('Bonjour' + i + 'coucou')
+            console.log(`Hello number : ${i}`)
+            i++
+        }
+
+        //deuxieme type de boucle tres utile pour parcourir les tableaux
+        const tableauB = [12,10.2,'coucou',"gourga3",[1,2,3]]
+        for(let i=0; i<tableauB.length; i++)
+        console.log(tableauB[i])
+
+        /*
+            Exercice: l'utilisateur doit entrer un chiffre entre 1 et 10 et tu dois dire si il a entrer ce chiffre tt en affichant les chiffre en dessous
+        */
+        /*
+        //soluce : 
+        const chiffre = prompt("veuillez saisir un chiffre entre 1 et 10 : ")
+        if (chiffre <0 || chiffre >10) {
+            console.log("votre chiffre "+chiffre+" n'est pas entre 1 et 10")
+        }
+        for(let i =0; i<=10; i++){
+            if(i == chiffre){
+                console.log('votre chiffre '+chiffre+' est bien entre 1 et 10')
+                console.log('voici les chiifres en dessous de lui')
+                for(let i=1; i<chiffre; i++){
+                    console.log(i)
+                }
+            }
+        }
+        */
+        /*
+            Exercice : l'utilisateur doit rentrer une nouvelle valeur à chaque fois jucequ'a ce qu'il devine le bon chiffre cad 8
+        */
+        /*
+        const guest = 8
+        while (i !== 8) {
+                i = prompt("essayer encore : ") *1
+        }console.log('GG!!!')
+        */
+        //Remarque et Tips : quand tu utilise le prompt l'utilisateur a un input de type string sauf que toi lors de tes exos t'as besoin qu'il saisisse des nombre et t'en a besoin surtt pour pouvoir utiliser les operateurs logiques === et !== et non == et != donc petit tips tu multiplie ton prompt fois un => prompt("") *1
+
+        //Remarque : n'oublie pas qu'as tt moment tu peux utiliser le "break;" pour sortir de force d'une boucle aussi infinie soit elle
+        while (true) {
+            console.log("ceci est une boucle infinie dont j'ai le controle")
+            break;
+        }
     </script>
 </head>
 <body>
