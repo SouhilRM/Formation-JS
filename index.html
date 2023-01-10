@@ -175,6 +175,55 @@
             break;
         }
     </script>
+
+    <!--<les fonctions-->
+    <script>
+        //exemple basique
+        function canDrive(age, pays) {
+            if((age >18 && pays ==='FR') || (age >16 && pays ==='USA')){
+                return true
+            }
+            else return false
+        }
+        console.log( canDrive(10,'FR') )
+
+        //Remarque : la fonction peux changer la valeur d'une valeure externe sans problème meme si ca n'a pas tro d'intere => prenon comme exemple un tableau d'éléments
+        const tableau_f = [10,12,13]
+        function change(tab) {
+            tab[0]++
+        }
+        change(tableau_f) //ca incremente bien la premiere valeur du tableau
+        console.log(tableau_f)
+
+
+        //Fonction Fléchées : 
+        //une function normale s'ecrits comme ceci
+        function somme1(a, b) {
+            return a+b
+        }
+        console.log(somme1(1,2))
+        //mais tu peux l'ecrire aussi comme suit ca s'appel les function fléchées
+        somme2 = (a,b) => {
+            return a+b
+        }
+        console.log(somme2(2,2))
+        //l'avantage avec ces functions fléchées c'est que si tu n'as qu'un seul retour alors tu peux abrégé comme suit :
+        somme21 = (a,b) => a+b
+        console.log(somme2(3,3))
+
+
+        //Fonction ColBack : C'est une fonction qui s'exécute si une condition spécifique est vérifiée
+        const isPair = function(n,cb){
+            if(n % 2 === 0){
+                cb(n)
+            }
+        }
+        isPair(2, function (a) {
+            console.log('ceci est bien un nombre pair ' + a)
+        })
+        //dans cette exemple la function callback est "cb()" qui est entrée comme parametres dans la function isPair
+
+    </script>
 </head>
 <body>
     <h1>APPRENTISSAGE DES BASES</h1>
