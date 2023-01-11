@@ -223,6 +223,97 @@
         })
         //dans cette exemple la function callback est "cb()" qui est entrée comme parametres dans la function isPair
 
+        /*
+            Exercices_1 : faire une function qui determine si un mot est un palindrome comme le mot "kayak" inclure MajMin
+        */
+        /*
+            Tips : 
+            la méthode ".split('')" : permet de spliter le mot dans un tableau lettre par lettre
+            la méthode ".reverse()" : permet d'inverser les élément d'un tableau
+            la méthode ".join()" : permet de koindre les éléments t'un pour en faire un mot
+            la méthode ".toUpperCase()" : permet de transformer un mot en majuscule
+        */
+        function isPal(word) {
+            const a = word.split('').reverse().join('')
+            return a.toUpperCase() === word.toUpperCase()
+        }
+        console.log(isPal('kayaK'))
+
+        /*
+            Exercices_2 : on a un tableau d'objets élèves et il faut calculet la moyenne de leur notes puis on affichera un classement des trois meilleurs 
+        */
+
+        let students = [
+            {
+                name: 'Ahmed',
+                note: [1,20,18,19,12]
+            },
+            {
+                name: 'Manel',
+                note: [10,2,14,14,16]
+            },
+            {
+                name: 'Youssef',
+                note: [10,4,7,9,1]
+            },
+            {
+                name: 'Lilou',
+                note: [10,20,18,19,14]
+            },
+            {
+                name: 'Souhil',
+                note: [20,20,18,19,20]
+            }
+        ]
+
+        //Soluce :
+        //une fonction qui calcule la moyenne
+        function moyenne(tab_note) {
+            let somme = 0
+            for(let i = 0; i<tab_note.length; i++){
+                somme = somme + tab_note[i]
+            }
+            return somme/tab_note.length
+        }
+        //une fonction qui ajoute les moyennes
+        function students_moyenne(tab_students){
+            for(let i = 0; i<tab_students.length; i++){
+                students[i].moyenne = moyenne(tab_students[i].note)
+            }
+        }
+        students_moyenne(students)
+
+        console.log(students)
+
+        //une fonction qui trie les etudiants par ordre croissant selon leur moyenne
+        function trie_studesnts(tab_students){
+            tab_students.sort((a, b) => a.moyenne - b.moyenne)//function(a, b){return a.moyenne - b.moyenne;} la meme chose on a juste utilisé fonction fléché pour abrégé 
+
+            //pk ajouté cette fonction (a, b) => a - b) a l'interieur de la méthose ".sort()" car à la base cette methode est faites pour trier les tableau par ordre alphabétyque donc si tu veux l'utiliser pour trier un tableau d'entiers tu mets => .sort((a, b) => a.moyenne - b.moyenne) et si tu veux l'utiliser pour trier un tableau d'objet => .sort((a, b) => a.l'attributVoulu - b.l'attributVoulu)
+        }
+        trie_studesnts(students)
+
+        function best_studesnts(tab_students){
+            let i =tab_students.length-1
+            console.log('TOP 03 des meilleurs étudiants : ')
+            while (i>1) {
+                console.log(`${tab_students[i].name} avec une moyenne de => ${tab_students[i].moyenne}`)
+                i--
+            }
+        }
+        best_studesnts(students)
+
+
+
+        let obj =("bonjour souhil souhil bonjour".split(' '))
+        console.log(obj[0])
+
+        function count(tableau){
+            for(let i=0; i<tableau.length; i++){
+                if(tableau[i]) === 
+            }
+        }
+        
     </script>
 </head>
 <body>
