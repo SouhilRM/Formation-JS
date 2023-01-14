@@ -171,9 +171,26 @@
 
         //Remarque : n'oublie pas qu'as tt moment tu peux utiliser le "break;" pour sortir de force d'une boucle aussi infinie soit elle
         while (true) {
-            console.log("ceci est une boucle infinie dont j'ai le controle")
+            console.log("ceci est une boucle infinie dont j'ai le controle avec le 'break' ")
             break;
         }
+
+        //Boucle pour objet
+        const objets = {
+            a: 'tutu',
+            b: 'tata',
+            c: 'toto'
+        }
+        for(let objet in objets) console.log(objet)//affiche a,b,c
+        for(let objet in objets) console.log(objets[objet])//affiche tutu,tata,toto
+        //le IN affiche les indexes de l'objet
+        //le OF ne marche pas pour les objets car il ne sont pas ittérables si tu veux afficher le contenu de lobjet tu peux tjr faire comme ca => for(let objet in objets) console.log(objets[objet])
+
+        //Boucle pour tableau
+        const tableaux = [11,22,33]
+        for(let tableau in tableaux) console.log(tableau)//le IN affiche les indexes du tableau
+        for(let tableau of tableaux) console.log(tableau)//le OF afiche le contenu du tableau
+
     </script>
 
     <!--<les fonctions-->
@@ -303,16 +320,91 @@
         }
         best_studesnts(students)
 
+        /*
+            Exercice 03 : si je te donne une phrase je veux que tu me retourne un objet qui contiens le mot et le nombre de fois qu'il apparait ( tu dois aussi prendre en compte les caracteres speciaux je ne veux pas que la fonction les prennent en compte et aussi les majuscule minuscules n'influent pas sur le mot )
+        */
+
+        //la phrase
+        const phrase = `La belle Isabelle porte une longue robe à fleurs ? Le gentil canard n'est pas aimé des méchants animaux de la vieille ferme ! Le chien affamé mange trés trés vite de chez vite vite. et cela n'envisage rien de bon...`
+        //l'objet ou nous allons stocké les mot avec leur nombre d'apparition
+        const frequence = {}
+
+        //le tableau ou nous allons stocké chaque mot de la phrase
+        const tab_mots = phrase
+                        .toLowerCase()//pour mettre toute la phrase en minuscule
+                        .replaceAll('...','').replaceAll('.','').replaceAll('!','').replaceAll('?','') //pour remplacer les caracteres speciaux 
+                        .split(' ')   //pour spliter la phrase en mots
+
+        
+        //Faisons une aparté: 
+            //comment ajoué un attribut supplémentaire à objet ?? Prenons l'exemple ci-dessous on a l'objet frequence1 on veut lui ajouté l'age par exemple
+            const frequence1 = {
+                name: "mahmoud",
+                surname: "reda"
+            }
+            console.log(frequence1)
+            //EZ on fait juste comme ca
+            frequence1.age = 21
+            console.log(frequence1)
+            
+            //mais là on aimerai ajouté à notre abjet des attribut du tableau job par exemple on veus ajouté => chirurgien: 5500 dans notre objet comment faire ??
+            const job = ['chirurgien','dentist','cardiologue']
+            console.log(job)
+            frequence1.job = job
+            console.log(frequence1)
+
+            //logiquement tu va me dire si on suit la logique precedente on fait => frequence.job[0]=5500 
+            //frequence.job[0]=5500 mais ca marche pas hammouda !!!
+            
+            //comment faire du coup ?? dis toi qu'on peux accéder à lattribut de deux manieres différente 
+            console.log(frequence1.name)    //toi tu connais que cette maniere
+            console.log(frequence1['name']) //mais il y a aussi cette maniere ci
+            //frequence1.name ou frequence1['name'] c la mm chose c ca l'astuce
+
+            //revenons à notre exemple donc du coup au lieu de faire frequence1.job[0]=5500 tu fais => frequence1[job[0]]=5500 et là ca marche !!!
+            frequence1[job[0]] = 5500
+            console.log(frequence1)
 
 
-        let obj =("bonjour souhil souhil bonjour".split(' '))
-        console.log(obj[0])
+        // bien maintenant à partie de cette aparté on peut continuer notre Exercice : 
+        for(let i=0; i<=tab_mots.length; i++){ //là tu parcour ton tableau de mots
 
-        function count(tableau){
-            for(let i=0; i<tableau.length; i++){
-                if(tableau[i]) === 
+            if(tab_mots[i] !== ''){ //bien sur tt ca tu le fais SI c pas une chaine de cara vide
+
+                if(frequence[tab_mots[i]]){ //si tu retrouve le mot donc la valeur n'est pas undefined ca veut dire qu'on a trouver quelque chose car undefined est considérée comme etant NULL
+
+                frequence[tab_mots[i]]++ //donc on incrémente
+
+                }else{ //sinon ca veux dire que c la premiere fois qu'on rencontre le mot donc la valeur est undefined donc on initialise à 1
+
+                    frequence[tab_mots[i]] = 1
+                }
             }
         }
+        console.log(frequence)
+        console.log(Object.keys(frequence).length) //affiche la taille de l'objet petit tips comme ca gratuit
+
+        //Deuxieme pârtie de l'exercice on veut afficher les mots qui apparaisse le plus souvent pour cela on va utiliser la function.sort() comme pour lexercice precedent mais le probleme c qu'on a un objet et cette fonction ne marche qu'avec les tableaux donc on doit convertire notre objet en tableau
+
+        const frequenceArray = [] //tu declare d'abord le tableau
+        
+        for(let i in frequence){//tu utilises la boucle IN pour parcourir ton objet
+            frequenceArray.push({//tu utilises la méthode push pour remplir ton tableau avec des objet
+                word: i,            //l'attribut 1 => c'est le mot
+                count: frequence[i] //l'attribut 2 => c'est le nombre de fois ou il apparait
+            })
+        }
+        //ahh maintenant on peut utiliser la méthode .sort()
+        frequenceArray.sort((a,b)=>b.count-a.count)
+        console.log(frequenceArray)
+
+        //enfin on affiche les mots qui apparaissent le plus souvent
+        console.log(`
+        Les trois mots qui apparaissent le plus souvent sont : 
+        "${frequenceArray[0].word}" qui apparait => ${frequenceArray[0].count}
+        "${frequenceArray[1].word}" qui apparait => ${frequenceArray[1].count}
+        "${frequenceArray[2].word}" qui apparait => ${frequenceArray[2].count}
+        `)
         
     </script>
 </head>
