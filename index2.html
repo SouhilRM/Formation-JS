@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apprentissage JS suite</title>
+
+    <!--Les classes-->
+    <script>
+
+        //on aura besoin de cette fonction dan snotre classe
+        function moyenne(tab_note) {
+            let somme = 0
+            for(let i = 0; i<tab_note.length; i++){
+                somme = somme + tab_note[i]
+            }
+            return somme/tab_note.length
+        }
+        //début de notre classe
+        class Studnet { //nom de la classe en majuscule par convention mais tu fais comme tu veux
+            ecole = 'Ahmed Ben Zekri'
+            _notes = [] //je declare un tableau vide pour eviter les erreurs
+
+            constructor(nom, prenom){ //definition du constructeur
+                this.nom = nom
+                this.prenom = prenom
+            }
+
+            set Note(v){//le setteur
+                if(Array.isArray(v)){
+                    this._notes = v
+                }
+            }
+
+            get name(){ //le guetteur qui retourne le nom suivi du prenom de l'obj
+                return `${this.nom} ${this.prenom}`
+            }
+
+            canPass(){ //c'est une methode qui determine si l'étudiant est admis ou non en utilisant la fonction moyenne déclarée en haut
+                return moyenne(this._notes) >=10
+            }
+        }
+
+        //déclaration d'objet
+        const etudiant_01 = new Studnet('Mahmoud','Bourguiaa')
+        const etudiant_02 = new Studnet('Nihel','Chaouch')
+
+        //utilisation des méthodes
+        etudiant_01.Note = 'popo'
+        etudiant_02.Note = [15,17,19]
+
+        console.log(etudiant_01.canPass(),etudiant_02.canPass())//quand tu fais appel à une fonction tu ajoute les parhantheses => .canPass()
+        console.log(etudiant_01.name,etudiant_02.name)//quand tu fais appel à un getteu setteur tu n'utilises pas les parantheses => .name
+
+        class Superstudnet extends Studnet{
+
+            get name(){
+                return `Tu es un SUPER etudiant ${super.name}`//le mot clé 'super' permet d'acceder à n'importe quelle propriété de la classe mère/parent
+            }
+
+            canPass(){ //bien sur si tu declare un objet super student avec la méthode canPass() il utilisera celle-ci
+                return true //on va le pistonné xD
+            }
+        }
+
+        const etudiant_03 = new Superstudnet('Souhil','Mamcha')
+        console.log(etudiant_01.canPass(),etudiant_02.canPass(),etudiant_03.canPass())
+
+        //Autre Exemple : formes géométriques
+
+        class Rectangle {
+
+            constructor(longueur, largeur){
+                this.longueur = longueur
+                this.largeur = largeur
+            }
+
+            get perimetre(){ //un guetteur qui calcule le perimetttre 
+                return 2*this.longueur + 2*this.largeur
+            }
+
+            get isValid(){//un deuxieme guetteur qui valide la forme
+                if(this.largeur<0 || this.longueur<0)
+                    return false
+                else 
+                    return "oui c'est valide"
+            }
+
+            isBigerThan(forme){
+                return this.perimetre > forme.perimetre
+            }
+        }
+
+        class Care extends Rectangle{
+
+            constructor(longueur){
+                super(longueur,longueur)
+            }
+        }
+
+        const r = new Rectangle(10,20)
+        console.log(r.perimetre)
+        console.log(r.isValid)
+
+        const r2 = new Rectangle(-10,22)
+        console.log(r2.isValid)
+
+        const c = new Care(10)
+        console.log(c.perimetre)
+        console.log(c.isBigerThan(r))
+
+    </script>
+</head>
+<body>
+    <h1>APPRENTISSAGE DES BASES Seconde partie</h1>
+</body>
+</html>
