@@ -193,7 +193,7 @@
 
     </script>
 
-    <!--<les fonctions-->
+    <!--Les fonctions-->
     <script>
         //exemple basique
         function canDrive(age, pays) {
@@ -406,6 +406,121 @@
         "${frequenceArray[2].word}" qui apparait => ${frequenceArray[2].count}
         `)
         
+    </script>
+
+    <!--Les fonctions usuelles-->
+    <script>
+        //en gros nous allons voir les fonctions predefinies les plus utiles
+
+        //La functuion ".at()" : elle est utilisée dans les tableaux pour renvoyé la valeur d'un index donné l'avantage c'est qu'on peux aussi lui donner des valeurs négatives pour pouvoir parcourrir le tableau depuis sa fin
+        const tab_1 = [12,15,55,19]
+        console.log(tab_1.at(1)) //renvoie 15
+        console.log(tab_1.at(-1)) //renvoie 19
+        console.log(tab_1.at(-2)) //renvoie 55
+
+        //La function ".concat()" : utilisée pour concaténer deux tableaux
+        const tab_2 = ['a','b','c','d']
+        console.log(tab_2.concat(tab_1))
+
+        //La function ".filter()" : renvoie des éléments d'un tableau selon des critèeres passés dans la fonction qui sera passé en parametre dans la méthode filter
+        const tab_3 = [1,5,8,15,19,20]
+        goodNotes = tab_3.filter((note) => note >= 10) //renvoie 15 19 20
+        badNotes = tab_3.filter((note) => note < 10) //renvoie 1 5 8
+        console.log(goodNotes)
+        console.log(badNotes)
+        //bien sur tu adaptes la fonction note selon tes criteres
+
+        //La méthode 'includes()' vérifie si un élément fait partie d'un tableau
+        console.log(tab_1.includes(55))//renvoie true
+        console.log(tab_1.includes(1))//renvoie false
+
+        //La méthode indexOf() : renvoie la valeure de l'index de lélément du tableau
+        const tab_4 = ['toto','popo','momo']
+        console.log(tab_4.indexOf('popo'))//renvoie 1
+        console.log(tab_4.indexOf('roro'))//renvoie -1 quand  la valeur nexiste pas
+
+        //La méthode join() : permet de joindre les differents elements avec un caractere de liaison
+        console.log(tab_4.join('-'))//renvoie toto-popo-momo
+        console.log(tab_4.join('___'))//renvoie toto___popo___momo
+
+        //La méthode ".map()" SUPER IMPORTANTE : c'est une méthode de TRANSFORMATION d'un tableau elle permet de transformer un tableau en un autre tableau selon des critères passés dans une fonction de transformation
+        const map_1 = [1,2,3]
+        console.log(map_1.map(x => x*2)) //affiche [2,4,6]
+
+        //autre exemple : on a un tableau d'objets {nom,prenom} et on aimerait bien le transformer en tableau qui contient le nom et le prenom directement dans une chaine de caractères avec des sauts de lignes entre chaques lignes 
+        const personnes_map = [
+            {nom: 'Soussi' , prenom: 'Faycel'},
+            {nom: 'Ramdane Mamcha' , prenom: 'Souhil'},
+            {nom: 'Arbaoui' , prenom: 'Rayen'},
+            {nom: 'Dib' , prenom: 'Ismet'},
+            {nom: 'Bouchour' , prenom: 'Mouhammed'}
+        ]
+        console.log(personnes_map)
+        let personnes = personnes_map.map((p) => `${p.nom} ${p.prenom}`).join('\n')
+        console.log(personnes)
+
+        //la méthode ".pop()" permet de supprimer le derniers éléments du tableau; ATTENTION: cette méthode modifie le tableau original
+        const pop_tab = [1,85,80,6]
+        console.log(pop_tab.pop()) //affiche 6
+        console.log(pop_tab) //affiche [1,85,86]
+
+        //la méthode ".shift()" permet de supprimer le premier éléments du tableau; ATTENTION: cette méthode modifie le tableau original
+        const shift_tab = [111,85,80,6]
+        console.log(shift_tab.shift()) //affiche 111
+        console.log(shift_tab) //affiche [85,86,6]
+
+        //la méthode ".push()" permet d'ajouter des éléments au tableau; ATTENTION: cette méthode modifie aussi le tableau original
+        const push_tab = ['popo','pipi']
+        push_tab.push('papa','pupu')
+        console.log(push_tab) //affiche ['popo','pipi','papa',pupu]
+
+        //la méthode '.reverse()' permet de d'inverser le tableau; ATTENTION: cette méthode modifie aussi le tableau original
+        const reverse_tab = [1,2,3]
+        console.log(reverse_tab.reverse()) //affiche [3,2,1]
+
+        //La méthode slice() renvoie un objet tableau, contenant une copie superficielle (shallow copy) d'une portion du tableau d'origine, la portion est définie par un indice de début et un indice de fin (exclus). Le tableau original ne sera pas modifié.
+        const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+        console.log(animals.slice(2));
+        // Expected output: Array ["camel", "duck", "elephant"]
+
+        console.log(animals.slice(2, 4));
+        // Expected output: Array ["camel", "duck"]
+
+        console.log(animals.slice(1, 5));
+        // Expected output: Array ["bison", "camel", "duck", "elephant"]
+
+        console.log(animals.slice(-2));
+        // Expected output: Array ["duck", "elephant"]
+
+        console.log(animals.slice(2, -1));
+        // Expected output: Array ["camel", "duck"]
+
+        console.log(animals.slice());
+        // Expected output: Array ["ant", "bison", "camel", "duck", "elephant"]
+
+        //La méthode ".sort()" qui permet d'organser les elements d'un tableau qu'on a deja vu
+
+        //la méthode Object.entries() : permet de renvoyer un tableau avec les clés et les valeurs d'un objet le premiers index c'est la propriété et le second index c'est la valeur associée
+        const person = {
+            nom: 'Mamcha',
+            prenom: 'Souhil',
+            age: 23,
+            religion: 'islam'
+        }
+        console.log(Object.entries(person)) //renvoie un tableau de tableau [['nom','mamcha'],['prenom','souhil'],['age',23],['religion','islam']]
+        //cela permet d'utiliser une boucle "for of" pour recuperer les propriétés de l'objet; pour rapel l'utilisation d'une boucle for of est impossible sur un objet
+        for(const [key,value] of Object.entries(person)){
+            console.log(`La clé : ${key}\nLa valeur : ${value}`)
+        }
+
+        //Objet.keys() : renvoie les clés de l'objet sous forme de tableau
+        console.log(Object.keys(person)) //affiche ['nom','prenom','age','religion']
+
+        //Objet.values() : renvoie les valeurs de l'objet sous forme de tableau
+        console.log(Object.values(person)) //affiche ['mamcha','souhil','23','islam']
+
+
     </script>
 </head>
 <body>
