@@ -111,6 +111,64 @@
         console.log(c.isBigerThan(r))
 
     </script>
+
+    <!--Les timers-->
+    <script>/*
+        //setTimeout() est une fonction qui prends en premier parametre une fonction qui contiens les truc que tu veux faire apres un certain delai; et en deuxiemme parametre ce delai
+        console.log('Bonjour')
+
+        setTimeout(()=>console.log("ceci est à l'interieur du settimeout"),1000)
+        //le premier paramettre est une fontion qui affiche "ceci est à l'interieur du settimeout"
+        //le deuxieme parametre represente le delai = 1000ms = 1s
+
+        console.log('les gens')
+        //petite remarque : l'avantage de ces fonction Timers c'est que c'est des fonctions asynchrones cad que pendant le delai d'attente le JS va continuer à exécuter le reste du code sauf si ya un truc qui l'iteromp comme un prompt() par exp c'est pour ca que das cette exemple le script affiche => Bonjour les gens en mm tems ensuite il attends une seconde puis il affiche "ceci est à l'interieur du settimeout" malgré que cet affichage est ecrit entre 'Bonjour' et éles gens
+
+        //setInterval() : permet d'e"xécuter une fonction à intervale regulier exp
+        const interval = setInterval(()=>console.log('Hamdoullah'),2000) //affiche hamdoullah toutes les 2 secondes
+
+        //la méthode clearInterval(id) permet de vider l'iterval() ou le SettimeOut() insi pouvoir arreter la boucle de l'itervale
+        //Ou se trouve l'ID ?? c'est tt simplement la valeur retourner par la fonction en elle mm; exp
+        console.log(interval) //renvoie l'id qui est = à 2
+        //si tu tappe dans la console clearInterval(2) ca arretera la boucle
+        setTimeout(()=>clearInterval(2),10000) //tu attends 10seconde puis tu arretes l'interval
+        
+        //MINI TP_01 : on veut afficher un message precisement 5 fois avec un intreval de 1 seconde à chaque fois comment faire ??
+        let j = 0
+        const i = setInterval(() => {
+            j++
+            console.log("Mon message")
+            if(j>=5) clearInterval(i)
+        }, 1000);
+*/
+        //MINI TP_02 : on veut creer un decompte qui va d'un chiffre donné jucequ'à 0 avec interval de 1 seconde
+        //1ere méthode avec setIntervale()
+        /*
+        function decompte(n){
+            n++
+            const k = setInterval(() => {
+                n--
+                console.log(n)
+                if(n === 0) clearInterval(k)
+            }, 1000);
+        }
+        decompte(5)
+        */
+        //2eme méthode avec setTimeout() + la recursivitée
+        /*
+        function decompte(n){
+            console.log(n)
+            if(n === 0)return
+            const time = setTimeout(() => {
+                decompte(n-1)
+            }, 1000);
+            
+        }
+        decompte(5)
+        */
+    </script>
+
+    
 </head>
 <body>
     <h1>APPRENTISSAGE DES BASES Seconde partie</h1>
