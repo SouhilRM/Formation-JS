@@ -168,7 +168,32 @@
         */
     </script>
 
+    <!--Les promaisse-->
+    <script>
+
+    </script>
+
+    <!--Appel HTTP avec fetch()-->
+    <script>
+        
+    </script>
     
+    <!--Les modules-->
+    <script type="module">
+        import { sum, hello as salut } from "./module.js";
+    
+        /*
+            on va voir les modules : ici on est dans notre ondex et j'aimerai bien utiliser une fonction qui provient d'un autre fichier JS comment faire ??
+            -tu crées ton nouveau fichier JS avec les fonction et les méthodes 
+            -pour pouvoir les utiliser dans l'index tu ajoute => type="module" dans le script en haut 
+            -tu ajoute un export avant les fonction et les méthodes que souhaites exporter dans ton nouveau fichierJS
+            ensuite tu ajoute dans l'index ou n'iporte quel fichier ou tu souhaite utiliser ces méthode => import { les fonctions souhaitées } from "./cheminFichier.js";
+            -si tu veux utiliser un nom de fonction autre que celui du fichier JS tu peux le changer dans le importe comme ceci => import { hello as salut } from "./module.js";
+        */
+
+        salut()
+        console.log(sum([1,2,3]))
+    </script>
 </head>
 <body>
     <h1>APPRENTISSAGE DES BASES Seconde partie</h1>
