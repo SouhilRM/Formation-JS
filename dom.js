@@ -73,6 +73,9 @@ document.querySelector('ul').append(newLi) //ajoute l'élement à la fin
 document.querySelector('ul').prepend(newLi) //ajoute l'élément au début
 //atention c'est pas parceque t'as mis les deux dernières lignes de codes que ton élément va etre mis au debut et à la fin en mm temps il va prendre en compte juste la dernniere instruction pk ?? => parceque UN ELEMENT NE PEUT PAS ETRE A PLUSIEURS ENDROITS EN MEME TEMPS DANS UNE STRUCTURE HTML ne l'oublie jamais
 
+//alors comment faire si je le veux quand mm au debut et à la fin ?? c'est simple tu duplique ton element avec la méthode .cloneNode(true)
+document.querySelector('ul').append(newLi.cloneNode(true)) //et voila mnt ton "Ceci est un nouvel élément monsieur Souhil" apparait en haut et en bas ez
+
 //il existe une autre méthode pour placer un élément par rapport à un autre element qui est insertAdjacentElement('motcle', tonElement) par exemple on veut jouer avec un div par rapport à notre ul
 const div = document.createElement('div')
 div.innerHTML = `Ceci est un exemple de div qu'on a ajouté via notre fichier JS`
@@ -81,3 +84,13 @@ document.querySelector('ul').insertAdjacentElement('afterbegin', div)
 //beforebegin : avant l'element qu'on a selectioné
 //beforeend :  comme le ".append()"
 //afterend :  apres l'element qu'on a selectioné
+
+//Remarque : le querry selector n'est pas obligé que sur le document tu peux aussi le mettre sur des docuent parent pour spécifier un fils en particulier
+const parent = document.querySelector('#parent')
+console.log(parent)
+
+const petit_fils = parent.querySelector('#petit_fils')
+console.log(petit_fils)
+
+//pour supprimer un élément déffinitivement du DOM .remove()
+document.querySelector('#test_sup').remove()
