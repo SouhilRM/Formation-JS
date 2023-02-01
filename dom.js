@@ -5,7 +5,6 @@ console.log(document)
 console.log(document.querySelector('#id_1'))
 
 //si plusieurs éléments possedent ce meme id il faudra utitliser alor .querySelectorAll('#id_1') pour qu'il renvoie touts les elements sous forme de nodelits
-
 console.log(document.querySelectorAll('#id_1'))
 
 //à noter aussi que la methode .querySelector() ne prend pas en parametres que des id mais peux aussi prendre des balises html directement
@@ -18,6 +17,7 @@ console.log(nodeList[1])
 //mais tu ne peux pas utiliser les méthodes spécifique des tableaux dessus; si toute fois tu voudrai les utiliser il suffit de transformer ta nodeList en un tableau; comment faire ?? => Array.from()
 const tabList = Array.from(nodeList)
 console.log(tabList) //et mnt tu peux utiliser les methodes des tableaux sur ta var tabList
+
 
 //Remarque : avant on utilisait la methode .getElementById() au lieu du .querySelector() ca marche tjr mais ca deviendra obcelete car ca prends en compte que les id alors que le selecteur tu peux luis passer pas mal de choses comme des balise (ul), les li qui sont des enfants directs du ul (ul > li), le premier enfant (ul li:first-child),... ca fonctonne comme un selector css
 
