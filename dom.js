@@ -1,18 +1,18 @@
 //L'objet document contient la structure de notre html tu peux mettre window.document mais pas la peine avec document
-console.log(document)
+console.log(document) //affiche le contenu html de ta page
 
 //document.querySelector('#id_1') prends en parametre l'id de l'element html et renvoie ce meme élément trés pratique
-console.log(document.querySelector('#id_1'))
+console.log(document.querySelector('#id_1')) //affiche le titre h1
 
 //si plusieurs éléments possedent ce meme id il faudra utitliser alor .querySelectorAll('#id_1') pour qu'il renvoie touts les elements sous forme de nodelits
-console.log(document.querySelectorAll('#id_1'))
+console.log(document.querySelectorAll('#id_1')) //affiche et le titre et la premiere division
 
 //à noter aussi que la methode .querySelector() ne prend pas en parametres que des id mais peux aussi prendre des balises html directement
 const nodeList = document.querySelectorAll('li')
-console.log(nodeList)
+console.log(nodeList) //affiche toutes les listes
 
 //Attention une nodeList n'est pas un tableau oui c'est vrai que tu peux acceder à certain éléments comme un tableau comme ca 
-console.log(nodeList[1])
+console.log(nodeList[1]) //affiche le premier li qui est "LoremLoremLoremLoremLo...."
 
 //mais tu ne peux pas utiliser les méthodes spécifique des tableaux dessus; si toute fois tu voudrai les utiliser il suffit de transformer ta nodeList en un tableau; comment faire ?? => Array.from()
 const tabList = Array.from(nodeList)
@@ -22,9 +22,10 @@ console.log(tabList) //et mnt tu peux utiliser les methodes des tableaux sur ta 
 //Remarque : avant on utilisait la methode .getElementById() au lieu du .querySelector() ca marche tjr mais ca deviendra obcelete car ca prends en compte que les id alors que le selecteur tu peux luis passer pas mal de choses comme des balise (ul), les li qui sont des enfants directs du ul (ul > li), le premier enfant (ul li:first-child),... ca fonctonne comme un selector css
 
 //Explorons quelques methodes du querry selector : 
-const ul = document.querySelector('ul')
+const ul = document.querySelector('ul') 
+console.log(ul) //renvoie tout l'élément UL
 
-console.log(ul.nodeName) //renvoie le nom du noeud html actuel en maj
+console.log(ul.nodeName) //renvoie le nom du noeud html actuel en maj ici c "UL"
 
 console.log(ul.innerHTML) //renvoie la partie html complete de cette element ul; attention tu peux changer le contenu si je fais par exemple un ul.innerHTML = 'coucocu' ca remplacera ta liste par la chainne coucou
 
@@ -40,17 +41,18 @@ ul.removeAttribute('hidden') //supprimer un attribut ici c'est hidden
 //const classe = document.getElementById('id03') //ca on l'utiliser avant
 const classe = document.querySelector('#id_02 > h2')
 classe.getAttribute('class') //.getAttribute() recuperer un attribut ici c'est "class" qui est dans h2 à l'interieur de #id_02
-console.log(classe.getAttribute('class')) // affiche 'red' et 'bold'
+console.log(classe.getAttribute('class')) //affiche 'red' et 'bold'
+console.log(classe.getAttribute('id')) //affiche id03
 
-//pour manipuler une class d'un attribut html en rajouter ou supprimer on utiliser l'attribut ".classList"
+//pour manipuler la valeur de attribut html en rajouter ou supprimer on utiliser l'attribut ".classList"
 console.log(classe.classList) //affiche le domtokenList qui est constitué de la class "red" et "bold"
 
-classe.classList.remove('red')//retire la classe red donc le text redevient noir
-classe.classList.add('red')//ajoute la classe red donc le text reredevient rouge
+classe.classList.remove('rouge')//retire la classe red donc le text redevient noir
+classe.classList.add('rouge')//ajoute la classe red donc le text reredevient rouge
 
-//.toggle() : retire la classe si elle existe et l'ajoute si elle n'existe pas 
-classe.classList.toggle('red')
-classe.classList.toggle('red')
+//.toggle() : retire la classe si elle existe et l'ajoute si elle n'existe pas. pratique pour faire des clignotements
+classe.classList.toggle('rouge')
+classe.classList.toggle('rouge')
 
 //Pour manipuler le style d'un element on utilise l'attribut '.style'
 const stile = document.querySelector('#id_s')
