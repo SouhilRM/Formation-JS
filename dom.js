@@ -61,7 +61,7 @@ console.log(stile.style)
 stile.style.color = 'green' //changer la couleur en vert
 stile.style.fontWeight = 'bold' //rendre le text en gras
 
-//attention toute fois car cette methode ne retourne le style de l'élément QUE si l'attribut style="" est declaré à l'iterieure de la balise html ca veut dire que si tu as un style qui est déclaré comme une class comme vu un peu avant alors ".style" ne va pas le prendre en comte !!! comment faire ?? => tu utilise la méthode getComputedStyle() qui te renvoie un gros objet qui contient tous les style de ton élément
+//attention toute fois car cette methode ne retourne le style de l'élément QUE si l'attribut style="" est declaré à l'iterieure de la balise html ca veut dire que si tu as un style qui est déclaré comme une class comme vu un peu avant alors ".style" ne va pas le prendre en compte !!! comment faire ?? => tu utilise la méthode getComputedStyle() qui te renvoie un gros objet qui contient tous les style de ton élément
 console.log(getComputedStyle(stile)) //te renvoie TOUT
 console.log(getComputedStyle(stile).color) //te renvoie la couleur
 
