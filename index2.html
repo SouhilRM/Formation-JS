@@ -175,7 +175,33 @@
 
     <!--Appel HTTP avec fetch()-->
     <script>
-        
+        //await ne marche que dans une function asynchrone donc tu mets tt dedans
+        async function main(){
+            try {
+
+                const ro = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=7', {//en cas d'érreur sur l'url ou une mauvaise com avec l'api une erreur sera capturé par le catch
+                
+                    //prends l'hapitude d'ajouter ce header tjr pour éviter les problemes
+                    headers: {
+                        Accept: 'application/json'
+                    }
+                })
+                //prends l'hapitude d'ajouter ca aussi meme ci ya deja un try_catch ma3lich
+                if(!ro.ok){
+                    throw new Error('impossible de contacté le serveur.')
+                }
+
+                const posts = await ro.json()
+
+                console.log(ro)//le ro c'est la reponse de la requete fetch
+                console.log(posts)//et là t'as tes posts sous formats json
+
+            } catch (error) {
+                console.log('Ohh voici une erreur billy !!!')
+                return
+            }
+        }
+        main()//tu appel ta function normal
     </script>
     
     <!--Les modules-->
