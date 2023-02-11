@@ -44,7 +44,9 @@ class ToDolistItem{
         const checkbox = createElement('input',{
             class : 'form-check-input',
             type: 'checkbox',
-            id: id
+            id: id,
+            checked: todo.completed
+            //checked: todo.completed ? '' : null
         })
         const label = createElement('label',{
             class: 'ms-2 form-check-label',
