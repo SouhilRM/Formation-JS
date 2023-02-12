@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecouteurs d'événements</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: grey;
+        }
+        .spoiler{
+            background-color: black;
+            color: black;
+            cursor: pointer;
+        }
+        span{
+            transition: 0.3s;
+        }
+    </style>
+    <script src="EcouteurEvent.js" defer></script>
+</head>
+<body>
+    <h1>Ecouteurs d'événements</h1>
+    <button>BOUTTON !</button>
+    <button><span>AUTRE BOUTTON !!</span></button>
+    <a href="http://google.com" id="lien">ceci est un lien vers google</a>
+
+    <div id="toto">
+        <button id="popo">ENCORE UN BOUTTON ??!!</button>
+    </div>
+
+    <form>
+        <input type="text" name="prenom"></input>
+        <button>Envoyer input</button>
+    </form>
+
+    <form id="form_01">
+        <input type="checkbox" id="input_01"></input>
+        <button>Envoyer checkebox</button>
+    </form>
+
+    <form>
+        <select name="selection" id="">
+            <option value="1">option 01</option>
+            <option value="2">option 02</option>
+            <option value="3">option 03</option>
+        </select>
+        <button>Envoyer select</button>
+    </form>
+
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam natus nobis sed cumque doloribus eveniet debitis quibusdam <span class="spoiler">libero voluptatem!</span> Harum corporis dignissimos dolorum accusantium consequuntur, <span class="spoiler">qui blanditiis ut recusandae</span> voluptatibus!
+    </p>
+</body>
+</html>

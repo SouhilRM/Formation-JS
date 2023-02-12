@@ -228,6 +228,23 @@
         somme21 = (a,b) => a+b
         console.log(somme2(3,3))
 
+        //autres exemple : 
+        //exp avec paramettres
+        function test(a){
+            return -a
+        }
+        //la meme chose que : 
+        test = a => -a 
+
+        //exemple sans paramettres
+        function test2(){
+            return 'hamouda'
+        }
+        //la meme chose que : 
+        test2 = () => 'hamouda'
+        console.log(test(5))
+        console.log(test2())
+
 
         //Fonction ColBack : C'est une fonction qui s'exécute si une condition spécifique est vérifiée
         const isPair = function(n,cb){
