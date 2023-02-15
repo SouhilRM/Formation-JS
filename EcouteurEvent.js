@@ -100,6 +100,21 @@ document.querySelector('select').addEventListener('change',e=>{
     console.log(e.currentTarget.selectedOptions)//contiens pas mal d'options selon tes besoin
 })
 
+//pour supprimer un ecouteur d'event tu utilises la méthode removeEventListener() : prenons comme exemple un boutton qui affiche un message trois fois sur la console puis il s'arrete
+//tu mets ton element dans une constante
+const boutton_s = document.querySelector('#sup')
+let i = 0
+//tu crees une fonction que tu vas mettre à 'iterieure la mehode remove
+function sup_function(){
+    i++
+    console.log('message de suppressionTestuelle')
+    if(i>=3){
+        boutton_s.removeEventListener('click',sup_function)
+    }
+}
+//tu crees ton event e utilisant la fonction que tu as créé precedement
+boutton_s.addEventListener('click',sup_function)
+
 //petit exo pour finir : on a un paragraphe qui spoil des éléments et on veux qu'une fois qu'ona clické sur ces elements ils apparaissent
 document.querySelectorAll('.spoiler').forEach(spoiler=>{
     spoiler.addEventListener('click',e=>{
