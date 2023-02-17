@@ -118,6 +118,6 @@ boutton_s.addEventListener('click',sup_function)
 //petit exo pour finir : on a un paragraphe qui spoil des éléments et on veux qu'une fois qu'ona clické sur ces elements ils apparaissent
 document.querySelectorAll('.spoiler').forEach(spoiler=>{
     spoiler.addEventListener('click',e=>{
-        e.currentTarget.classList.remove('spoiler')
+        e.currentTarget.classList.remove('spoiler') 
     })
 })
