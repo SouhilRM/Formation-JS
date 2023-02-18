@@ -62,10 +62,17 @@ class ToDolistItem{
         li.append(label)
         li.append(button)
 
+        button.addEventListener('click',(e) => this.remove(e))
+
         this.#element = li
     }
 
     appendTo(element){
         element.append(this.#element)
+    }
+
+    remove(e) {
+        //e.peventDefault
+        this.#element.remove()
     }
 }
