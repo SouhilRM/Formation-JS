@@ -17,7 +17,7 @@ try {
     alert.setAttribute('class','alert alert-danger')
     alert.setAttribute('role','alert')
     */
-    
+    console.error(error)
     const alertElement = createElement('div',{
             class: 'alert alert-danger m-5',
             role: 'alert'
